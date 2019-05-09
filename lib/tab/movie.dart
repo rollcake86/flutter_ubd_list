@@ -70,16 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: <Widget>[
                               new Card(
                                 child: new Container(
-                                  child: new Row(
-                                    children: <Widget>[
-                                      new Padding(
-                                        padding: EdgeInsets.only(right: 20.0),
-                                        child: new Icon(
-                                          Icons.local_movies,
-                                          color: Colors.blueAccent,
-                                          size: 75,
-                                        ),
-                                      ),
+                                  child:
                                       new Column(
                                         children: <Widget>[
                                           new Text(
@@ -104,8 +95,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 color: Colors.lightBlueAccent),
                                           )
                                         ],
-                                      )
-                                    ],
                                   ),
                                   padding: EdgeInsets.all(15.0),
                                 ),
@@ -128,13 +117,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.search),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
-
-  _clickItem(BuildContext context, String name) {
-//    AlertDialog dialog = new AlertDialog(
-//        title: new Text('UBD List'), content: new Text('hello'));
-//    showDialog(context: context, builder: (BuildContext context) => dialog);
-    print(name);
   }
 
   String getMovieName(String name) {

@@ -32,7 +32,7 @@ class TabHomeApp extends State<TabHome> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(appBar: new AppBar(
-      title: new Text('UBH Movie List'),
+      title: new Text('UBD Movie List'),
       backgroundColor: Colors.blueGrey,
     ),
       body: new TabBarView(children: <Widget>[new MyHomePage() , new ClacApplication() ] , controller: tabController,),
