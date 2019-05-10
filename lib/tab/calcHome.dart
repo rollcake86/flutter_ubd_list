@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ClacApplication extends StatefulWidget {
   @override
@@ -10,9 +11,19 @@ class ClacApplication extends StatefulWidget {
 
 class CalcHome extends State<ClacApplication> {
   var ubdResult = "";
+  var key = "counter";
+  var counter = 0;
 
   TextEditingController controller = new TextEditingController();
   TextEditingController tipController = new TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadSaveData();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +77,13 @@ class CalcHome extends State<ClacApplication> {
     );
   }
 
+  void _loadSaveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      counter = (prefs.getInt(key) ?? 170000);
+    });
+  }
+
   void _calc() {
     print('click');
     if (controller.text.length == 0) {
@@ -74,7 +92,7 @@ class CalcHome extends State<ClacApplication> {
     setState(() {
       try{
         int money = int.parse(controller.text);
-        var result = money * 170000;
+        var result = money * counter;
         ubdResult = result.toString();
         tipController.text = ubdResult;
       }catch(error){

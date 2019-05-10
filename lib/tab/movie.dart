@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -12,6 +13,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var date = "20180101";
   var data;
+  var counter = 0;
+  var key = "counter";
+
   TextEditingController controller = TextEditingController();
 
   Future<String> getJSONData() async {
@@ -31,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     this.getJSONData();
     super.initState();
+    _loadSaveData();
   }
 
   void _searchMovieList() {
@@ -127,8 +132,16 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void _loadSaveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      counter = (prefs.getInt(key) ?? 170000);
+    });
+  }
+
+
   String getUBD(String acount) {
-    double result = (int.parse(acount) / 170000);
+    double result = (int.parse(acount) / counter);
     return 'UBD : ' + result.toString();
   }
 }

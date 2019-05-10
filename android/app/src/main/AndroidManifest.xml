@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ubd_movie_list">
+    package="com.rollcake.ubd_movie_list">
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -11,7 +11,7 @@
         android:label="UBD 리스트"
         android:icon="@mipmap/ic_logo">
         <activity
-            android:name=".MainActivity"
+            android:name="com.rollcake.ubd_movie_list.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

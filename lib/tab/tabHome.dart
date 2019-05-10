@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'sharedHome.dart';
 import 'calcHome.dart';
 import 'movie.dart';
 
@@ -19,7 +20,7 @@ class TabHomeApp extends State<TabHome> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    tabController = new TabController(length: 2, vsync: this);
+    tabController = new TabController(length: 3, vsync: this);
   }
 
   @override
@@ -35,7 +36,7 @@ class TabHomeApp extends State<TabHome> with SingleTickerProviderStateMixin {
       title: new Text('UBD Movie List'),
       backgroundColor: Colors.blueGrey,
     ),
-      body: new TabBarView(children: <Widget>[new MyHomePage() , new ClacApplication() ] , controller: tabController,),
+      body: new TabBarView(children: <Widget>[new MyHomePage() , new ClacApplication() , new SharedApp() ] , controller: tabController,),
 
       bottomNavigationBar: new Material(
         color: Colors.blueGrey,
@@ -45,6 +46,8 @@ class TabHomeApp extends State<TabHome> with SingleTickerProviderStateMixin {
           ),
           new Tab(
             icon: new Icon(Icons.trending_up),
+          ),   new Tab(
+            icon: new Icon(Icons.save),
           ),
         ],
           controller: tabController,),
